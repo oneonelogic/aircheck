@@ -1,6 +1,6 @@
 """Render dj_break.txt with Orpheus 3B (Canopy Labs, Apache 2.0) via transformers + SNAC.
 Avoids the vllm dependency of the orpheus-speech package."""
-import sys, time
+import os, sys, time
 import torch, soundfile as sf
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from snac import SNAC
@@ -8,7 +8,8 @@ from snac import SNAC
 text = open(sys.argv[1]).read().strip()
 out = sys.argv[2]
 voice = sys.argv[3] if len(sys.argv) > 3 else "leo"   # tara, leah, jess, leo, dan, mia, zac, zoe
-model_name = "canopylabs/orpheus-3b-0.1-ft"
+# canopylabs/orpheus-3b-0.1-ft is gated on HF; Unsloth hosts an ungated copy of the same weights.
+model_name = os.environ.get("ORPHEUS_MODEL", "unsloth/orpheus-3b-0.1-ft")
 
 t0 = time.time()
 tok = AutoTokenizer.from_pretrained(model_name)

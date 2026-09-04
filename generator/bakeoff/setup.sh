@@ -14,16 +14,19 @@ ffmpeg -version | head -1
 
 echo "== chatterbox"
 [ -d venv-chatterbox ] || uv venv venv-chatterbox --python 3.11 -q
-uv pip install -q --python venv-chatterbox/bin/python chatterbox-tts soundfile
+# setuptools: resemble-perth imports pkg_resources, which uv venvs omit
+uv pip install -q --python venv-chatterbox/bin/python chatterbox-tts soundfile "setuptools<80"
 
 echo "== higgs-audio"
 [ -d higgs-audio ] || git clone -q https://github.com/boson-ai/higgs-audio
 [ -d venv-higgs ] || uv venv venv-higgs --python 3.10 -q
-uv pip install -q --python venv-higgs/bin/python -r higgs-audio/requirements.txt
+# torch pinned: 2.14 trips "Padding_idx must be within num_embeddings" in the Higgs model init
+uv pip install -q --python venv-higgs/bin/python "torch==2.6.0" "torchaudio==2.6.0" "torchvision==0.21.0"
+uv pip install -q --python venv-higgs/bin/python -r higgs-audio/requirements.txt "torch==2.6.0" "torchaudio==2.6.0" "torchvision==0.21.0"
 uv pip install -q --python venv-higgs/bin/python -e higgs-audio soundfile
 
 echo "== orpheus"
 [ -d venv-orpheus ] || uv venv venv-orpheus --python 3.10 -q
-uv pip install -q --python venv-orpheus/bin/python torch torchaudio transformers accelerate snac soundfile "huggingface_hub[cli]"
+uv pip install -q --python venv-orpheus/bin/python "torch==2.6.0" "torchaudio==2.6.0" transformers accelerate snac soundfile "huggingface_hub[cli]"
 
 echo "SETUP_DONE"

@@ -1,6 +1,7 @@
 """Render dj_break.txt with Higgs Audio v2 (Boson AI, Apache 2.0)."""
 import sys, time
 import torch, torchaudio
+from huggingface_hub import snapshot_download
 from boson_multimodal.serve.serve_engine import HiggsAudioServeEngine
 from boson_multimodal.data_types import ChatMLSample, Message
 
@@ -14,12 +15,15 @@ system_prompt = (
     "Warm, close-mic'd broadcast voice, upbeat and confident.\n"
     "<|scene_desc_end|>"
 )
+# Both HF repos were rewritten 2026-04/05 for the transformers-native integration
+# (config.json lost text_config, tokenizer model.pth deleted). This repo's own loader
+# needs the July 2025 layout, so pin the last revisions before that change.
 t0 = time.time()
-engine = HiggsAudioServeEngine(
-    "bosonai/higgs-audio-v2-generation-3B-base",
-    "bosonai/higgs-audio-v2-tokenizer",
-    device="cuda",
-)
+gen_path = snapshot_download("bosonai/higgs-audio-v2-generation-3B-base", revision="10840182ca4a")
+tok_path = snapshot_download("bosonai/higgs-audio-v2-tokenizer", revision="9d4988fbd4ad")
+print(f"weights ready in {time.time()-t0:.1f}s", flush=True)
+t0 = time.time()
+engine = HiggsAudioServeEngine(gen_path, tok_path, device="cuda")
 print(f"loaded in {time.time()-t0:.1f}s", flush=True)
 t0 = time.time()
 resp = engine.generate(
