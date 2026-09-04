@@ -3,10 +3,14 @@ import sys, time
 import torch, torchaudio
 from huggingface_hub import snapshot_download
 from boson_multimodal.serve.serve_engine import HiggsAudioServeEngine
-from boson_multimodal.data_types import ChatMLSample, Message
+from boson_multimodal.data_types import ChatMLSample, Message, AudioContent
 
 text = open(sys.argv[1]).read().strip()
 out = sys.argv[2]
+# Optional voice reference: a wav and its transcript. Higgs clones the voice
+# from the reference when it is given as a prior assistant turn.
+ref_wav = sys.argv[3] if len(sys.argv) > 3 else None
+ref_txt = open(sys.argv[4]).read().strip() if len(sys.argv) > 4 else None
 
 system_prompt = (
     "Generate audio following instruction.\n\n"
@@ -26,11 +30,15 @@ t0 = time.time()
 engine = HiggsAudioServeEngine(gen_path, tok_path, device="cuda")
 print(f"loaded in {time.time()-t0:.1f}s", flush=True)
 t0 = time.time()
+messages = [Message(role="system", content=system_prompt)]
+if ref_wav:
+    messages += [
+        Message(role="user", content=ref_txt),
+        Message(role="assistant", content=AudioContent(audio_url=ref_wav)),
+    ]
+messages.append(Message(role="user", content=text))
 resp = engine.generate(
-    chat_ml_sample=ChatMLSample(messages=[
-        Message(role="system", content=system_prompt),
-        Message(role="user", content=text),
-    ]),
+    chat_ml_sample=ChatMLSample(messages=messages),
     max_new_tokens=2048, temperature=0.3, top_p=0.95, top_k=50,
     stop_strings=["<|end_of_text|>", "<|eot_id|>"],
 )

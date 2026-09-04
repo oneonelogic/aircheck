@@ -140,7 +140,7 @@ survey clients, and pack manifest code compile and test with the plain
 - [ ] Spike 1: iOS handoff proof. **Code written** (`Aircheck/Spike/`, 2026-09-04): `HandoffSequencer` plays `intro.aiff` → catalog song → `outro.aiff`, with two end-of-song detectors (Combine observer + 0.5 s poll) and a persistent log in `Documents/spike.log`. **Not yet run on a device** — needs the App ID registered and an iPhone attached. Nothing else matters if this is unreliable.
 - [ ] Check ARSA terms of use; write a survey fetcher + cache
 - [ ] Define the station-pack manifest format
-- [ ] Voice bake-off: **all three clips rendered 2026-09-04** and sent to the user (see `generator/bakeoff/README.md`); awaiting the ear test. Then: reference-voice pass on the winner, radio processing chain, ElevenLabs only if none pass.
+- [ ] Voice bake-off: **all three clips rendered 2026-09-04** and sent to the user (see `generator/bakeoff/README.md`); ear test round 1: **Higgs and Orpheus beat Chatterbox** (user). Round 2 (`round2.sh`): Higgs with reference voices, Orpheus alternate voices, FM processing chain on all. ElevenLabs only if none pass.
 - [ ] Generator CLI: station profile → scripts → TTS → element files
 - [ ] Hot-clock sequencer in the app, playing a pack
 - [ ] Server: R2 bucket + hashing scheme, then read-only Worker API (see `docs/server-plan.md`)
