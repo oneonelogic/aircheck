@@ -21,6 +21,7 @@ retry with backoff on catalog search) rather than reinventing it.
 | Station audio (jingles, IDs, sweepers, PSAs, ads) | **Synthesized from scripts**: LLM writes period-style copy, TTS reads it, generated or royalty-free music beds underneath. No real jingle packages (PAMS/JAM etc. are copyrighted). |
 | Voice scope (v1) | **DJ patter plus news**: intros, back-announces, time/temp/weather, and a newscast with period-accurate headlines for the chosen date. |
 | Generation compute | **Local first, on the AI box** (RTX 4090, 24 GB, Ollama), to avoid API spend during development. Cloud models are a later upgrade path, not the default. Mind model licenses: the app ships commercially under the LLC. |
+| Models (2026-09-04) | **Scripts: `gemma3:27b`** via Ollama on the AI box (`qwen2.5:14b` already there is the comparison baseline). **Voices: believability is the requirement, not cost.** One model for all voices (DJ, news, ad announcer), picked by a blind bake-off on the AI box of the same DJ script across **Chatterbox, Higgs Audio v2, and Orpheus** (all permissive licenses). If none passes the user's ear, **ElevenLabs** for voices with everything else local; the content store renders each element once, so cloud TTS cost is bounded by the library size, not the listener count. Kokoro dropped (flat). **Beds: ACE-Step.** Rejected: XTTS, MusicGen, Fish/OpenAudio (non-commercial licenses), qwen3-coder (wrong domain). Headlines are never recalled by the model; they are rewritten from Wikipedia text for the date. |
 
 ## Why iOS, not Mac
 
@@ -90,6 +91,18 @@ The app itself is a **player of station packs**; keep the generator a
 separate tool (CLI, probably Swift or Python) so packs can be inspected and
 regenerated without touching the app.
 
+## Server side (planned, 2026-09-04)
+
+There will be a backend: generated content must be stored once and reused,
+users have state, and the fleet (AI box, behind NAT, off overnight) needs a
+job queue it can poll. Full plan in `docs/server-plan.md`. Summary:
+**Cloudflare Workers + D1 + R2**, Sign in with Apple, content-addressed
+elements and packs (hash of script + voice + model), build order R2 first,
+read-only API second, jobs third, auth last. Anonymous device identity first,
+limited (play existing packs only, no generation requests); Sign in with
+Apple lifts the limits and syncs state. CloudKit is the fallback.
+MusicKit never touches the server.
+
 ## Business identity
 
 Ships under **OneOneLogic LLC** (same as Casey).
@@ -126,14 +139,19 @@ survey clients, and pack manifest code compile and test with the plain
 - [ ] Spike 1: iOS handoff proof. **Code written** (`Aircheck/Spike/`, 2026-09-04): `HandoffSequencer` plays `intro.aiff` → catalog song → `outro.aiff`, with two end-of-song detectors (Combine observer + 0.5 s poll) and a persistent log in `Documents/spike.log`. **Not yet run on a device** — needs the App ID registered and an iPhone attached. Nothing else matters if this is unreliable.
 - [ ] Check ARSA terms of use; write a survey fetcher + cache
 - [ ] Define the station-pack manifest format
+- [ ] Voice bake-off on the AI box: Python env, then Chatterbox / Higgs Audio v2 / Orpheus render the same 30 s DJ break; user picks by ear or we go ElevenLabs
 - [ ] Generator CLI: station profile → scripts → TTS → element files
 - [ ] Hot-clock sequencer in the app, playing a pack
+- [ ] Server: R2 bucket + hashing scheme, then read-only Worker API (see `docs/server-plan.md`)
 - [ ] Register `com.oneonelogic.aircheck.dev` App ID with MusicKit (developer portal, user does this)
 
 ## Open questions
 
-- TTS provider and cost (cloud vs on-device); whether voices per decade are
-  worth separate treatment.
+- Which voice model survives the bake-off; whether voices per decade are
+  worth separate treatment. Note that 70s–90s radio audio was heavily
+  processed (compression, EQ, a music bed under most talk), and applying
+  that same chain at render time hides TTS artifacts. Production matters
+  as much as the model.
 - Headline source for the newscast, and how to keep an LLM from inventing
   events for a specific date.
 - Billboard format charts for non-Top-40 formats.
