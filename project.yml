@@ -1,0 +1,47 @@
+name: Aircheck
+options:
+  bundleIdPrefix: com.oneonelogic
+  deploymentTarget:
+    iOS: "17.0"
+    macOS: "14.0"
+  createIntermediateGroups: true
+  xcodeVersion: "16.0"
+targets:
+  Aircheck:
+    type: application
+    supportedDestinations: [iOS, macOS]
+    sources:
+      - path: Aircheck
+    entitlements:
+      path: Aircheck/Aircheck.entitlements
+      properties:
+        # macOS sandbox + network; both are ignored by iOS at build time.
+        com.apple.security.app-sandbox: true
+        com.apple.security.network.client: true
+    info:
+      path: Aircheck/Info.plist
+      properties:
+        CFBundleDisplayName: Aircheck
+        LSApplicationCategoryType: public.app-category.music
+        NSAppleMusicUsageDescription: Aircheck plays songs from Apple Music between the station's jingles, ads, and DJ breaks.
+        # Required for the song -> local element handoff to fire while backgrounded.
+        UIBackgroundModes: [audio]
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+    settings:
+      base:
+        # Dev bundle ID under the personal Apple account; com.oneonelogic.aircheck
+        # stays reserved for the OneOneLogic LLC release.
+        PRODUCT_BUNDLE_IDENTIFIER: com.oneonelogic.aircheck.dev
+        # Pinned so `xcodegen generate` never loses the team (Casey's recurring problem).
+        DEVELOPMENT_TEAM: 92777459RZ
+        CODE_SIGN_STYLE: Automatic
+        SWIFT_VERSION: "5.9"
+        ENABLE_HARDENED_RUNTIME: true
+        TARGETED_DEVICE_FAMILY: "1,2"
+        MARKETING_VERSION: "0.1.0"
+        CURRENT_PROJECT_VERSION: 1

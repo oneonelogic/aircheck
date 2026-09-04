@@ -1,0 +1,359 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01CE7880FE17BB1B878C8E89 /* SpikeLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48F7BF34D1455D748B73ABF /* SpikeLog.swift */; };
+		0367F3EFFE90E0A31A90B3C8 /* AircheckApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B914360276EB1DABECCA0AD /* AircheckApp.swift */; };
+		36E2062625494ACCB7738A2C /* intro.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 661C4DB204872D35F49809D2 /* intro.aiff */; };
+		72C34E6487D1168480B67D75 /* HandoffSequencer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBDE05348F8DF8EA93CD1E5 /* HandoffSequencer.swift */; };
+		FB5C15778C149CB5E7B70F8E /* HandoffSpikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D7A661A9A189EFE84353C7 /* HandoffSpikeView.swift */; };
+		FEB16BD64A0432E5E7F56F2C /* outro.aiff in Resources */ = {isa = PBXBuildFile; fileRef = C7EE2A8C7D8878EC2B9A6C65 /* outro.aiff */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		06D7A661A9A189EFE84353C7 /* HandoffSpikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandoffSpikeView.swift; sourceTree = "<group>"; };
+		3B914360276EB1DABECCA0AD /* AircheckApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircheckApp.swift; sourceTree = "<group>"; };
+		49825B522FEBD2B6C9A8BCFE /* Aircheck.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Aircheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DBDE05348F8DF8EA93CD1E5 /* HandoffSequencer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandoffSequencer.swift; sourceTree = "<group>"; };
+		510EF19E2522F24CFF33F72E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		661C4DB204872D35F49809D2 /* intro.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = intro.aiff; sourceTree = "<group>"; };
+		A5A3C47F94F951C39E6039AE /* Aircheck.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Aircheck.entitlements; sourceTree = "<group>"; };
+		B48F7BF34D1455D748B73ABF /* SpikeLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpikeLog.swift; sourceTree = "<group>"; };
+		C7EE2A8C7D8878EC2B9A6C65 /* outro.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = outro.aiff; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		22112DA7D888CDE0F07CB17C /* Aircheck */ = {
+			isa = PBXGroup;
+			children = (
+				A5A3C47F94F951C39E6039AE /* Aircheck.entitlements */,
+				3B914360276EB1DABECCA0AD /* AircheckApp.swift */,
+				510EF19E2522F24CFF33F72E /* Info.plist */,
+				966CCA3D9D266144450BEF7E /* Resources */,
+				2C740613085FE9373EE24FB9 /* Spike */,
+			);
+			path = Aircheck;
+			sourceTree = "<group>";
+		};
+		2C740613085FE9373EE24FB9 /* Spike */ = {
+			isa = PBXGroup;
+			children = (
+				4DBDE05348F8DF8EA93CD1E5 /* HandoffSequencer.swift */,
+				06D7A661A9A189EFE84353C7 /* HandoffSpikeView.swift */,
+				B48F7BF34D1455D748B73ABF /* SpikeLog.swift */,
+			);
+			path = Spike;
+			sourceTree = "<group>";
+		};
+		2FFC264A1C5C5BD1CE29681F = {
+			isa = PBXGroup;
+			children = (
+				22112DA7D888CDE0F07CB17C /* Aircheck */,
+				787D5FA5821A6E810F86638E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		787D5FA5821A6E810F86638E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				49825B522FEBD2B6C9A8BCFE /* Aircheck.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		966CCA3D9D266144450BEF7E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				661C4DB204872D35F49809D2 /* intro.aiff */,
+				C7EE2A8C7D8878EC2B9A6C65 /* outro.aiff */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		66B496B870A60F04F796BBD4 /* Aircheck */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 619DC9DAED276FA404091744 /* Build configuration list for PBXNativeTarget "Aircheck" */;
+			buildPhases = (
+				5F6BCD8CE06A9EE97BCE3932 /* Sources */,
+				03C0EA040C7F949A765C74B9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Aircheck;
+			packageProductDependencies = (
+			);
+			productName = Aircheck;
+			productReference = 49825B522FEBD2B6C9A8BCFE /* Aircheck.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D5923857A07F956A3E290743 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					66B496B870A60F04F796BBD4 = {
+						DevelopmentTeam = 92777459RZ;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 77844FED2639E25F9DC4A28B /* Build configuration list for PBXProject "Aircheck" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 2FFC264A1C5C5BD1CE29681F;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 787D5FA5821A6E810F86638E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				66B496B870A60F04F796BBD4 /* Aircheck */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		03C0EA040C7F949A765C74B9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36E2062625494ACCB7738A2C /* intro.aiff in Resources */,
+				FEB16BD64A0432E5E7F56F2C /* outro.aiff in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5F6BCD8CE06A9EE97BCE3932 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0367F3EFFE90E0A31A90B3C8 /* AircheckApp.swift in Sources */,
+				72C34E6487D1168480B67D75 /* HandoffSequencer.swift in Sources */,
+				FB5C15778C149CB5E7B70F8E /* HandoffSpikeView.swift in Sources */,
+				01CE7880FE17BB1B878C8E89 /* SpikeLog.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		406CFB53C24BC891DA33F136 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Aircheck/Aircheck.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 92777459RZ;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = Aircheck/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.oneonelogic.aircheck.dev;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8504B6C3D30B04EFDDAC13B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A0075BDDC3FB6417F3A810B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		E6B97FBC35BCA05E0E98BA07 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Aircheck/Aircheck.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 92777459RZ;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = Aircheck/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.oneonelogic.aircheck.dev;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		619DC9DAED276FA404091744 /* Build configuration list for PBXNativeTarget "Aircheck" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				406CFB53C24BC891DA33F136 /* Debug */,
+				E6B97FBC35BCA05E0E98BA07 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		77844FED2639E25F9DC4A28B /* Build configuration list for PBXProject "Aircheck" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8504B6C3D30B04EFDDAC13B9 /* Debug */,
+				A0075BDDC3FB6417F3A810B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D5923857A07F956A3E290743 /* Project object */;
+}
