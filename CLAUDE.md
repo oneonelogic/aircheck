@@ -21,6 +21,7 @@ retry with backoff on catalog search) rather than reinventing it.
 | Station audio (jingles, IDs, sweepers, PSAs, ads) | **Synthesized from scripts**: LLM writes period-style copy, TTS reads it, generated or royalty-free music beds underneath. No real jingle packages (PAMS/JAM etc. are copyrighted). |
 | Voice scope (v1) | **DJ patter plus news**: intros, back-announces, time/temp/weather, and a newscast with period-accurate headlines for the chosen date. |
 | Generation compute | **Local first, on the AI box** (RTX 4090, 24 GB, Ollama), to avoid API spend during development. Cloud models are a later upgrade path, not the default. Mind model licenses: the app ships commercially under the LLC. |
+| Station identities | **Fictional** (user, 2026-09-04). Invented call letters, slogan, DJs, and local sponsors per real market and format. The real survey is credited factually as the data source. Station profile carries `source_station` (real, data) and `on_air_identity` (fictional, scripts). Rationale under Open questions. |
 | Models (2026-09-04) | **Scripts: `gemma3:27b`** via Ollama on the AI box (`qwen2.5:14b` already there is the comparison baseline). **Voices: believability is the requirement, not cost.** One model for all voices (DJ, news, ad announcer), picked by a blind bake-off on the AI box of the same DJ script across **Chatterbox, Higgs Audio v2, and Orpheus** (all permissive licenses). If none passes the user's ear, **ElevenLabs** for voices with everything else local; the content store renders each element once, so cloud TTS cost is bounded by the library size, not the listener count. Kokoro dropped (flat). **Beds: ACE-Step.** Rejected: XTTS, MusicGen, Fish/OpenAudio (non-commercial licenses), qwen3-coder (wrong domain). Headlines are never recalled by the model; they are rewritten from Wikipedia text for the date. |
 
 ## Why iOS, not Mac
@@ -158,6 +159,23 @@ survey clients, and pack manifest code compile and test with the plain
 - Whether song slots respect the survey's chart positions (heavy rotation
   for the top of the survey) or draw uniformly.
 - Music beds: generated (which model), royalty-free library, or composed.
+- **Real station identities (decided 2026-09-04: fictional; reasoning kept for the record).** Call
+  letters and slogans ("WLS", "The Big 89", "93 KHJ Boss Radio") are
+  trademarks, many still owned by iHeart / Cumulus / Audacy or their
+  successors. Fabricating new content in a real station's name, in a paid
+  or LLC-branded app, is a trademark and false-endorsement exposure even
+  for defunct stations. Real DJ names and voices add right-of-publicity
+  exposure. Not legal advice; a lawyer should look before launch if real
+  identities ship. **Recommended default:** fictional call letters and
+  slogan per real market and format, invented DJs, invented local sponsors;
+  the real survey is credited factually ("song list from the WLS survey of
+  1983-06-11"), which is nominative use of the call letters to identify a
+  data source. Design consequence: the station profile carries both a
+  `source_station` (real, for data) and an `on_air_identity` (fictional,
+  for scripts), so switching to real identities later is a flag, not a
+  rewrite. Survey *data* (positions, titles) is factual and not
+  copyrightable in the US; the scanned survey images are, so use the data
+  and never redistribute the scans. Check ARSA's terms regardless.
 
 ## Local build notes
 
